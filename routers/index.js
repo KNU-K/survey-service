@@ -9,6 +9,10 @@ passport.use("naver", naver);
 
 router.use("/api", apiRouter);
 
+/**
+ * @template
+ */
+
 router.get("/", (req, res) => {
   res.render("loginPage");
 });

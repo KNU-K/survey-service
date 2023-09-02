@@ -1,30 +1,19 @@
 question:
   q1:
     type: "content"
-    question: "asd"
+    question: "tset1"
   q2:
-    type: "content"
-    question: "asd"
-  q3:
     type: "option"
-    question: "asd11"
+    question: "test3"
     o1: "asd"
     o2: "a1"
     o3: "a2"
-    o4: "a1"
-    o5: "a2"
-  q4:
+  q3:
     type: "selection"
     question: "asd22"
-    s1: "asd1"
-    s2: "asd2"
-    s3: "asd3"
-    s4: "asd3"
-    s5: "asd3"
-    s6: "asd3"
-    s7: "asd3"
-    s8: "asd3"
-    s9: "asd3"
-  q5:
+    s1: "t1"
+    s2: "t2"
+    s3: "t3"
+  q4:
     type: "content"
-    question: "asd"
+    question: "test5"

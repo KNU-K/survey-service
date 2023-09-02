@@ -2,12 +2,12 @@ const passport = require("passport");
 const UserService = require("../services/user.service");
 
 const NaverStrategy = require("passport-naver").Strategy;
-
+require("dotenv").config();
 const naver = new NaverStrategy(
   {
-    clientID: "tVSZEtEJpZQvt18FB2Kh",
-    clientSecret: "7yXLrc7mkL",
-    callbackURL: "http://localhost:8000/api/login/naver/callback",
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret,
+    callbackURL: process.env.callbackURL,
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
