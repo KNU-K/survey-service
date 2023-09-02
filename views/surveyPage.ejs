@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Page</title>
+    <link rel="stylesheet" href="/css/surveyPage.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <div>
+        <span class="display-name"><%= displayName %> 님</span>
+      </div>
+      <button class="naver-logout">Logout</button>
+    </div>
+
+    <div class="container">
+      <h1>Survey</h1>
+
+      <ul>
+        <% for (const key in survey.question) { %>
+
+        <hr />
+        <br />
+        <li>
+          <strong class="question-title"
+            ><%= key %>: <%= survey.question[key].question %></strong
+          >
+
+          <% if (survey.question[key].type === 'content') { %>
+          <!-- Content Type with Textarea -->
+          <textarea name="<%= key %>"></textarea>
+          <% } else if (survey.question[key].type === 'selection') { %>
+          <!-- Option Type -->
+          <ul class="options">
+            <% for (const optionKey in survey.question[key]) { %> <% if
+            (optionKey !== 'type' && optionKey !== 'question') { %>
+            <li class="option">
+              <input
+                type="checkbox"
+                name="<%= key %>"
+                value="<%= survey.question[key][optionKey] %>"
+              />
+              <%= survey.question[key][optionKey] %>
+            </li>
+            <% } %> <% } %>
+          </ul>
+          <% } else if (survey.question[key].type === 'option') { %>
+          <!-- Selection Type -->
+          <ul class="options">
+            <% for (const selectionKey in survey.question[key]) { %> <% if
+            (selectionKey !== 'type' && selectionKey !== 'question') { %>
+            <li class="option">
+              <input
+                type="radio"
+                name="<%= key %>"
+                value="<%= survey.question[key][selectionKey] %>"
+              />
+              <%= survey.question[key][selectionKey] %>
+            </li>
+            <% } %> <% } %>
+          </ul>
+          <% } %>
+        </li>
+
+        <% } %>
+      </ul>
+      <button class="send">Send</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="/js/surveyPage.js"></script>
+  </body>
+</html>
